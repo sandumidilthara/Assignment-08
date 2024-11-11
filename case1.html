@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        background-color: #e5e4e2;
+        margin: 0;
+        padding: 0;
+      }
+      .content > img {
+        width: 150px;
+        height: 100px;
+        margin-right: 20px;
+      }
+      .content > .home-image {
+        width: 300px;
+        height: 150px;
+      }
+      .line {
+        width: 98%;
+        height: 1px;
+        background-color: black;
+        opacity: 0.2;
+        position: relative;
+        right: 20%;
+        top: 3%;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
+        gap: 3px;
+        position: relative;
+        top: 5%;
+      }
+      .content > span {
+        text-align: center;
+        color: blue;
+        font-weight: 600;
+        position: relative;
+        right: 120%;
+        top: 30%;
+        font-size: 18px;
+      }
+      .person-image {
+        position: relative;
+        top: 25%;
+      }
+      h1 {
+        font-size: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: red;
+        position: relative;
+        bottom: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JS Que</h1>
+      <div class="content">
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">D</span>
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">E</span>
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">F</span>
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">A</span>
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">B</span>
+        <img class="person-image" src="/images/man.gif" alt="person-image" />
+        <span class="letter">C</span>
+        <img class="home-image" src="/images/home.gif" alt="home" />
+      </div>
+      <div class="line"></div>
+    </div>
+    <script>
+      let letters = document.querySelectorAll(".letter");
+      let spans = ["A", "B", "C", "D", "E", "F"];
+      function chageChracter() {
+        letters.forEach((letter, index) => {
+          letter.textContent = spans[index];
+        });
+
+        spans.unshift(spans.pop());
+      }
+      setInterval(chageChracter, 2000);
+    </script>
+  </body>
+</html>

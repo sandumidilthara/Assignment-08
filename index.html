@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment-4</title>
+    <style>
+      body {
+        padding: 50px;
+        background-color: black;
+        color: white;
+      }
+      h1,
+      h2,
+      p {
+        margin: 0;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .box {
+        width: 1000px;
+        height: 75px;
+        background-color: white;
+        opacity: 0.4;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 60px;
+      }
+      .card {
+        border: 2px solid white;
+        overflow: hidden;
+        height: 400px;
+        position: relative;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card-1 {
+        background-image: url(/images/a8one.jpg);
+      }
+      .card-2 {
+        background-image: url(/images/a8two.jpg);
+        background-size: cover;
+      }
+      .card-3 {
+        background-image: url(/images/a8three.jpg);
+        background-size: cover;
+      }
+      .center-box {
+        width: 100%;
+        height: 300px;
+        background-color: gray;
+        opacity: 0;
+        margin-top: 230px;
+        text-align: center;
+        color: white;
+      }
+      .card:hover .center-box {
+        position: absolute;
+        animation: down-up 4s ease-in-out 1;
+        opacity: 0.8;
+      }
+      button {
+        width: 100px;
+        height: 30px;
+        background: linear-gradient(to right, #00ff00, #008000);
+        color: white;
+        border-color: white;
+        cursor: pointer;
+      }
+      h2,
+      p {
+        margin-bottom: 10px;
+      }
+      h2 {
+        margin-top: 15px;
+      }
+
+      @keyframes down-up {
+        0% {
+          left: 0;
+          top: 300px;
+        }
+        50% {
+          left: 0;
+          top: 0;
+        }
+        100% {
+          left: 0;
+          top: 0;
+        }
+      }
+      button > a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Assignment 08</h1>
+    <section>
+      <main>
+        <div class="card-container">
+          <div class="card card-1">
+            <div class="center-box">
+              <h2>Case-01</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In quia
+                sequi blanditiis quas corrupti eligendi non expedita, fuga
+                adipisci explicabo.
+              </p>
+              <button>
+                <a href="/case1.html" target="_blank">Click-Here</a>
+              </button>
+            </div>
+          </div>
+          <div class="card card-2">
+            <div class="center-box">
+              <h2>Case-02</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In quia
+                sequi blanditiis quas corrupti eligendi non expedita, fuga
+                adipisci explicabo.
+              </p>
+              <button>
+                <a href="/case2.html" target="_blank">Click-Here</a>
+              </button>
+            </div>
+          </div>
+          <div class="card card-3">
+            <div class="center-box">
+              <h2>Case-03</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In quia
+                sequi blanditiis quas corrupti eligendi non expedita, fuga
+                adipisci explicabo.
+              </p>
+              <button>
+                <a href="/case3.html" target="_blank">Click-Here</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+     
+  </body>
+</html>

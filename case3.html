@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        background-color: black;
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        margin-top: 3%;
+      }
+      .line-box {
+        width: 850px;
+        height: 100px;
+        border-top: 3px solid white;
+        border-bottom: 3px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 95px;
+        height: 50px;
+        border-radius: 5px;
+        margin: 5px;
+      }
+      h2 {
+        color: red;
+        font-family: "Times New Roman", Times, serif;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 36%;
+        left: 41%;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2%;
+      }
+      .btn button {
+        margin-right: 20px;
+        color: white;
+        width: 60px;
+        height: 40px;
+        border: 1px solid white;
+        cursor: pointer;
+      }
+      #start-btn {
+        background-color: red;
+      }
+      #stop-btn {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript Knight Rider</h2>
+    <div class="container">
+      <div class="line-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+      <div class="btn">
+        <button onclick="startFunction()" id="start-btn">Start</button>
+        <button onclick="stopFunction()" id="stop-btn">Stop</button>
+      </div>
+    </div>
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      const stopButton = document.querySelector("#stop-btn");
+      const startButton = document.querySelector("#start-btn");
+      let currentIndex = 0;
+      let direction = 1;
+      let colors = [
+        "#FAA0A0",
+        "#F88379",
+        "#A95C68",
+        "#954535",
+        "#7C3030",
+        "#8B0000",
+        "#D2042D",
+        "#FF0000",
+      ];
+
+      function resetColor() {
+        for (let i = 0; i < boxes.length; i++) {
+          boxes[i].style.backgroundColor = "white";
+        }
+      }
+
+      function animate() {
+        resetColor();
+        if (direction === 1) {
+          for (let i = 0; i < colors.length; i++) {
+            const cardIndex = currentIndex - i;
+            if (cardIndex >= 0) {
+              boxes[cardIndex].style.backgroundColor = colors[i];
+            }
+          }
+
+          currentIndex++;
+          if (currentIndex >= boxes.length) {
+            direction = -1;
+            currentIndex = boxes.length - 1;
+          }
+        } else {
+          for (let i = 0; i < colors.length; i++) {
+            const cardIndex = currentIndex + i;
+            if (cardIndex < boxes.length) {
+              boxes[cardIndex].style.backgroundColor = colors[i];
+            }
+          }
+
+          currentIndex--;
+          if (currentIndex < 0) {
+            direction = 1;
+            currentIndex = 0;
+          }
+        }
+      }
+      boxes.forEach((box, index) => {
+        box.style.backgroundColor = colors[index];
+      });
+      colors.unshift(colors.pop());
+
+      let start;
+      function startFunction() {
+        if (!start) {
+          start = setInterval(animate, 500);
+        }
+      }
+      function stopFunction() {
+        clearInterval(start);
+        start = null;
+      }
+      startFunction();
+    </script>
+  </body>
+</html>
